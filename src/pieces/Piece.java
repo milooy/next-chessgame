@@ -30,7 +30,7 @@ public abstract class Piece {
 		}
 	}
 	
-	private Color color;
+	protected Color color;			
 	private Type type;
 	protected Position position;	//상속된 클래스에서는 접근 가능하도록 변경함.
 	
