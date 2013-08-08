@@ -32,7 +32,7 @@ public abstract class Piece {
 	
 	private Color color;
 	private Type type;
-	private Position position;
+	protected Position position;	//상속된 클래스에서는 접근 가능하도록 변경함.
 	
 	Piece(Color color, Type type, Position position) {
 		this.color = color;
