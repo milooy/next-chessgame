@@ -1,5 +1,5 @@
 package pieces;
-
+import java.util.ArrayList;
 import java.util.List;
 
 public class Rook extends Piece {
@@ -9,6 +9,10 @@ public class Rook extends Piece {
 
 	@Override
 	List<Position> getPossibleMoves() {
+		List<Position> possibleMoves = new ArrayList<Position>();
+		
+		
+		
 		return null;
 	}
 }

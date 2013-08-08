@@ -26,4 +26,8 @@ public class PieceTest extends TestCase {
 		Piece whitePawn = new Pawn(Color.WHITE, source);
 		assertEquals(new Empty(Color.NOCOLOR, source), whitePawn.leave());
 	}
+	
+	
+	
+	
 }

@@ -34,6 +34,7 @@ public class Board {
 		}
 	}
 	
+	//모두 빈칸으로 초기화되었나 
 	void initializeEmpty() {
 		for (int i = 0; i < ROW_SIZE; i++) {
 			Rank rank = new Rank(i);

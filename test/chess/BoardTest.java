@@ -10,17 +10,19 @@ import pieces.Position;
 public class BoardTest extends TestCase {
 	private Board board;
 	
-	@Override
-	protected void setUp() throws Exception {
+	@Override	//시작할때마다 보드 생성
+	protected void setUp() throws Exception {	
 		board = new Board();
 	}
 	
+	//n번째 랭크를 생성하고 비교
 	public void testCreate() throws Exception {
 		board.initialize();
 		assertEquals(RankTest.WHITE_PAWN_RANK, board.generateRank(1));
 		assertEquals(RankTest.BLACK_PAWN_RANK, board.generateRank(6));
 	}
 	
+	//전체 보드판이 잘 생성이 되었나 
 	public void testPrint() throws Exception {
 		board.initialize();
 		String expected = 
@@ -40,17 +42,20 @@ public class BoardTest extends TestCase {
 		return RankTest.EMPTY_RANK + Board.NEW_LINE;
 	}
 	
+	//"a8"이렇게 string으로 검색하면 심볼값이 나오는가  
 	public void testFindPiece() throws Exception {
 		board.initialize();
 		assertEquals('R', board.findPiece("a8").getSymbol());
 		assertEquals('k', board.findPiece("e1").getSymbol());
 	}
 	
+	//모두 빈칸으로 초기화되었나 
 	public void testInitializeEmpty() throws Exception {
 		board.initializeEmpty();
 		System.out.println(board.generateBoard());
 	}
 	
+	//말 옮기기
 	public void testMovePiece() throws Exception {
 		board.initialize();
 		Position source = new Position("a2");

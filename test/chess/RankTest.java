@@ -19,7 +19,7 @@ public class RankTest extends TestCase {
 	
 	@Override
 	protected void setUp() throws Exception {
-		rank = new Rank(0);
+		rank = new Rank(0);						//꼭 (0)을 붙여야하나????????????
 	}
 	
 	public void testInitializeEmpty() throws Exception {
