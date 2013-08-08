@@ -10,7 +10,7 @@ public class Bishop extends Piece {
 	}
 
 	@Override
-	List<Position> getPossibleMoves() {
+	public List<Position> getPossibleMoves() {
 		List<Position> possibleMoves = new ArrayList<Position>();
 		
 		//position의 y값에서 x값을 빼준 값 minusGapNum을 구한다. 

@@ -11,5 +11,4 @@ public class BishopTest extends TestCase {
 		System.out.println(bishop.getPossibleMoves());
 		assertEquals(13, bishop.getPossibleMoves().size());
 	}
-
 }
