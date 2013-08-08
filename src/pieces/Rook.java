@@ -21,7 +21,7 @@ public class Rook extends Piece {
 		for(int y=0; y<chess.Board.ROW_SIZE; y++){
 			if(y==super.position.getY())
 				continue;
-			possibleMoves.add(new Position(y, super.position.getX()));
+			possibleMoves.add(new Position(super.position.getX(), y));
 		}
 		return possibleMoves;
 	}
