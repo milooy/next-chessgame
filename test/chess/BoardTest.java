@@ -60,12 +60,27 @@ public class BoardTest extends TestCase {
 		board.initialize();
 		Position source = new Position("a2");
 		Piece sourcePiece = board.findPiece(source);
-		assertEquals(new Pawn(Color.WHITE, source), sourcePiece);
+		assertEquals(new Pawn(Color.WHITE, source), sourcePiece);	//source자리에 흰폰이 있냐?
 		
 		Position target = new Position("a3");
 		board.movePiece(source, target);
 		assertEquals(new Empty(Color.NOCOLOR, source), board.findPiece(source));
 		assertEquals(new Pawn(Color.WHITE, target), board.findPiece(target));
 		System.out.println(board.generateBoard());
+	}
+	
+	//잘못된 말 옮기기
+	public void testWrongMovement() throws Exception {
+		board.initialize();
+		Position source = new Position("g6");	//(6,5)자리. 비어있다.
+		Position target = new Position("g7");	//(6,6)자리. 블랙폰이 있다.
+
+		board.movePiece(source, target);
+		assertEquals(new Empty(Color.NOCOLOR, source), board.findPiece(source));
+		assertEquals(new Pawn(Color.BLACK, target), board.findPiece(target));
+		assertEquals(new Empty(Color.NOCOLOR, source), board.findPiece(source));
+		assertEquals(new Pawn(Color.BLACK, target), board.findPiece(target));
+		System.out.println(board.generateBoard());
+		
 	}
 }
