@@ -22,6 +22,18 @@ public class PawnTest extends TestCase {
 		
 		System.out.println(pawnW2.getPossibleMoves());
 		assertEquals(0, pawnW2.getPossibleMoves().size());
+		
+		Position source4 = new Position("b2");		//(1,1)위치.white pawn의 시작위치. 
+		Piece pawnW3 = new Pawn(Color.WHITE, source4);
+		
+		System.out.println(pawnW3.getPossibleMoves());
+		assertEquals(2, pawnW3.getPossibleMoves().size());
+
+		Position source5 = new Position("b7");		//(1,6)위치.black pawn의 시작위치. 
+		Piece pawnB2 = new Pawn(Color.WHITE, source5);
+		
+		System.out.println(pawnB2.getPossibleMoves());
+		assertEquals(2, pawnB2.getPossibleMoves().size());
 	}
 
 
