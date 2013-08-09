@@ -49,6 +49,15 @@ public class Position {
 		}
 		return positions;
 	}
+
+	List<Position> findsPosition2(Direction direction) {	//끝까지 도는게 아니고 한번만 돌도록 해준다.
+		ArrayList<Position> positions = new ArrayList<Position>();
+		Position currentPosition = move(direction);
+		if(currentPosition.isValid()) 
+			positions.add(currentPosition);
+		
+		return positions;
+	}
 	
 	boolean isValid() {
 		if ( y < 0 || y >= Board.ROW_SIZE) {

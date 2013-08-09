@@ -54,6 +54,7 @@ public class Board {
 	}
 
 	void movePiece(String source, String target) {
+	
 		movePiece(new Position(source), new Position(target));
 	}
 
