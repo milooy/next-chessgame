@@ -16,6 +16,7 @@ public class KnightTest extends TestCase {
 		
 		System.out.println(knight2.getPossibleMoves());
 		assertEquals(4, knight2.getPossibleMoves().size());
+		
 	}
 
 }

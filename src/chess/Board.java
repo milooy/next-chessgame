@@ -62,7 +62,8 @@ public class Board {
 		Piece targetPiece = findPiece(source);
 		Piece sourcePiece = targetPiece.leave();
 		
-		if(!targetPiece.isEmpty()){
+		//타겟피스자리가 빈거가 아니면 옮겨준다.
+		if(!(targetPiece.isEmpty()) && (target.isValid())){
 			Rank sourceRank = ranks.get(source.getY());
 			sourceRank.move(sourcePiece, source);
 			
