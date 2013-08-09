@@ -62,15 +62,21 @@ public class Board {
 		Piece targetPiece = findPiece(source);
 		Piece sourcePiece = targetPiece.leave();
 		
-		//타겟피스자리가 빈거가 아니면 옮겨준다.
+//		System.out.println(targetPiece.matchColor(sourcePiece.color));
+//		System.out.println(findPiece(source).color==findPiece(target).color);
+		
+		
+		
+		//옮길 말이 비지 않았고, 유효한 위치면 옮겨준다.
 		if(!(targetPiece.isEmpty()) && (target.isValid())){
-			Rank sourceRank = ranks.get(source.getY());
-			sourceRank.move(sourcePiece, source);
-			
-			Rank targetRank = ranks.get(target.getY());
-			targetRank.move(targetPiece, target);
+			if(!(findPiece(source).color==findPiece(target).color)){	//같은색말이면 안옮김 
+				Rank sourceRank = ranks.get(source.getY());
+				sourceRank.move(sourcePiece, source);
+				
+				Rank targetRank = ranks.get(target.getY());
+				targetRank.move(targetPiece, target);
+			}
 		}
-
 	}
 	
 	String generateRank(int rankIndex) {

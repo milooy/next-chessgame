@@ -58,11 +58,11 @@ public class BoardTest extends TestCase {
 	//말 옮기기
 	public void testMovePiece() throws Exception {
 		board.initialize();
-		Position source = new Position("a2");
+		Position source = new Position("a2"); //흰폰 
 		Piece sourcePiece = board.findPiece(source);
 		assertEquals(new Pawn(Color.WHITE, source), sourcePiece);	//source자리에 흰폰이 있냐?
 		
-		Position target = new Position("a3");
+		Position target = new Position("a3");	//빈자리 
 		board.movePiece(source, target);
 		assertEquals(new Empty(Color.NOCOLOR, source), board.findPiece(source));
 		assertEquals(new Pawn(Color.WHITE, target), board.findPiece(target));
@@ -82,15 +82,26 @@ public class BoardTest extends TestCase {
 		System.out.println(board.generateBoard());
 	}
 
-	//유효하지 않은 위치 옮기
+	//유효하지 않은 위치 옮기기 
 	public void testWrongTargetMovement() throws Exception {
 		board.initialize();
 		Position source = new Position("a7");	//(0,7)자리. 블랙이 있다.
-		Position target = new Position("a9");	//판을 넘어간 위치다.
+		Position target = new Position("a8");	//판을 넘어간 위치다.
 		
 		board.movePiece(source, target);
 		assertEquals(new Pawn(Color.BLACK, source), board.findPiece(source));
 	
+		System.out.println(board.generateBoard());
+	}
+
+	//같은 편 말일때 이동 불가 
+	public void testWrongColorMovement() throws Exception {
+		board.initialize();
+		Position source = new Position("a7");	//(0,7)자리. 블랙폰이 있다.
+		Position target = new Position("a8");	//(1,7)자리. 블랙폰이 있다.
+		
+		board.movePiece(source, target);
+		
 		System.out.println(board.generateBoard());
 	}
 }

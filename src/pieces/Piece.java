@@ -30,7 +30,7 @@ public abstract class Piece {
 		}
 	}
 	
-	protected Color color;			
+	public Color color;			
 	private Type type;
 	protected Position position;	//상속된 클래스에서는 접근 가능하도록 변경함.
 	
@@ -69,12 +69,12 @@ public abstract class Piece {
         return false;
     }
     
-	boolean matchColor(Color color) {
+	public boolean matchColor(Color color) {
 		return this.color == color ? true : false;
 	}
 
 	public Piece leave() {
-		return new Empty(Color.NOCOLOR, this.position);
+		return new Empty(Color.NOCOLOR, this.position);	//이 자리를 비워준다.(빈 말을 놓음)
 	}
 	
 	public Piece move(Position target) {
