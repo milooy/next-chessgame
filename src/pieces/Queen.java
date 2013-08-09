@@ -27,32 +27,9 @@ public class Queen extends Piece {
 		}
 		
 		//Diagonal Position
-		int minusGapNum = super.position.getX() - super.position.getY();
-		int plusGapNum = super.position.getY() + super.position.getX();
-		int curX1 = super.position.getX();
-		int curX2 = super.position.getX();
-		Position testPosition;
-		
-		while(true){
-			curX1--;
-			curX2++;
-			
-			testPosition = new Position(curX1, plusGapNum-curX1);
-			if(testPosition.isValid())
-				possibleMoves.add(testPosition);
-			testPosition = new Position(curX1, curX1-minusGapNum);
-			if(testPosition.isValid())
-				possibleMoves.add(testPosition);
-
-			testPosition = new Position(curX2, plusGapNum-curX2);
-			if(testPosition.isValid())
-				possibleMoves.add(testPosition);
-			testPosition = new Position(curX2, curX2-minusGapNum);
-			if(testPosition.isValid())
-				possibleMoves.add(testPosition);
-			
-			if(!testPosition.isValid())
-				break;
+		PositionController posC = new PositionController(super.position);
+		for(int i=0; i<posC.findsDiagonalPositionAll().size(); i++){
+			possibleMoves.add(posC.findsDiagonalPositionAll().get(i));
 		}
 		return possibleMoves;
 	}
