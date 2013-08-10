@@ -62,14 +62,10 @@ public class Board {
 		Piece targetPiece = findPiece(source);
 		Piece sourcePiece = targetPiece.leave();
 		
-//		System.out.println(targetPiece.matchColor(sourcePiece.color));
-//		System.out.println(findPiece(source).color==findPiece(target).color);
-		
-		
-		
 		//옮길 말이 비지 않았고, 유효한 위치면 옮겨준다.
 		if(!(targetPiece.isEmpty()) && (target.isValid())){
-			if(!(findPiece(source).color==findPiece(target).color)){	//같은색말이면 안옮김 
+			if(!(findPiece(source).color==findPiece(target).color) && //같은색말이면 안옮김 
+					targetPiece.getPossibleMoves().contains(target)){ //이동할 수 있는 목표지점	
 				Rank sourceRank = ranks.get(source.getY());
 				sourceRank.move(sourcePiece, source);
 				

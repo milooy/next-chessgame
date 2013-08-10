@@ -8,7 +8,7 @@ public class Rook extends Piece {
 	}
 
 	@Override
-	List<Position> getPossibleMoves() {
+	public List<Position> getPossibleMoves() {
 		List<Position> possibleMoves = new ArrayList<Position>();
 
 		//position을 기준으로 가로줄의 position들을 add해준다. 자기 자신은 빼준다. 	

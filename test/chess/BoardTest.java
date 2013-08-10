@@ -104,4 +104,15 @@ public class BoardTest extends TestCase {
 		
 		System.out.println(board.generateBoard());
 	}
+	
+	//이동하려는 지점이 말이 이동할 수 없는 목표 지점인 경우 못옮김.
+	public void testWrongProperMovement() throws Exception {
+		board.initialize();
+		Position source = new Position("a7");	//(0,7)자리. 블랙폰이 있다.
+		Position target = new Position("a3");	//폰이 움직일 수 없는 범위. 
+		
+		board.movePiece(source, target);
+		
+		System.out.println(board.generateBoard());
+	}
 }

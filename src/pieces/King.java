@@ -9,7 +9,7 @@ public class King extends Piece {
 	}
 
 	@Override
-	List<Position> getPossibleMoves() {
+	public List<Position> getPossibleMoves() {
 		List<Position> possibleMoves = new ArrayList<Position>();
 		
 		//현재 x, y 좌표를 넣어준다.

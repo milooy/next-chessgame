@@ -9,7 +9,7 @@ public class Knight extends Piece {
 	}
 
 	@Override
-	List<Position> getPossibleMoves() {
+	public List<Position> getPossibleMoves() {
 		List<Position> possibleMoves = new ArrayList<Position>();
 
 		PositionController posC = new PositionController(super.position);
