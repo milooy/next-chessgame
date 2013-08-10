@@ -12,7 +12,9 @@ public class Board{
 	public static final int ROW_SIZE = 8;
 	public static final int COLUMN_SIZE = 8;
 	
-	List<Rank> ranks = new ArrayList<Rank>();
+	public BoardStrategy boardStrategy = new BoardConsole();
+	
+	static List<Rank> ranks = new ArrayList<Rank>();
 	
 	Board() {
 	}
@@ -43,6 +45,7 @@ public class Board{
 			ranks.add(rank);
 		}
 	}
+
 
 	Piece findPiece(String xy) {
 		Position position = new Position(xy);
@@ -76,18 +79,20 @@ public class Board{
 		}
 	}
 	
-	String generateRank(int rankIndex) {
+	static String generateRank(int rankIndex) {
 		Rank rank = ranks.get(rankIndex);
 		StringBuilder sb = new StringBuilder();
 		sb.append(rank.generate());
 		return sb.toString();
 	}
 
-	String generateBoard() {
-		StringBuilder sb = new StringBuilder();
-		for (int i = ROW_SIZE; i > 0; i--) {
-			sb.append(generateRank(i-1) + NEW_LINE);
-		}
-		return sb.toString();
+	public String generateBoard() {
+		return boardStrategy.generateBoard();
 	}
+
+	public void setHonors(BoardStrategy boardStrategy) {
+		this.boardStrategy = boardStrategy;
+		
+	}
+
 }

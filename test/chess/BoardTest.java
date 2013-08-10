@@ -115,4 +115,17 @@ public class BoardTest extends TestCase {
 		
 		System.out.println(board.generateBoard());
 	}
+	
+	public void testBoardSwitch() throws Exception {
+		Board boardConsole = new Board();
+		boardConsole.initialize();
+		System.out.println(boardConsole.generateBoard());
+		
+		Board boardHtml = new Board();
+		boardHtml.setHonors(new BoardHtml());
+		boardHtml.initialize();
+		System.out.println(boardHtml.generateBoard());
+		
+		
+	}
 }
